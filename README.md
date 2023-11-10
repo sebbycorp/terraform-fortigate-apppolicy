@@ -18,6 +18,7 @@ module "fortios_firewall_config" {
   source                = "./modules/fortios_firewall"
   vdomparam             = "FG-traffic"
   address_name          = "app_team_address"
+  action                = "accept"
   associated_interface  = "awsgeneve"
   instance_ip           = aws_instance.app_team_instance.private_ip
   policy_name           = "app_team_policy"
