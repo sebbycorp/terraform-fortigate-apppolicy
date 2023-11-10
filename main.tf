@@ -9,22 +9,25 @@ resource "fortios_firewall_address" "app_address" {
 
 resource "fortios_firewall_policy" "app_policy" {
   vdomparam           = var.vdomparam
-  action              = "accept"
+  action              = var.action
   inspection_mode     = "flow"
-  logtraffic          = "all"
+  logtraffic          = var.logtraffic
   name                = var.policy_name
   schedule            = "always"
-  ssl_ssh_profile     = "no-inspection"
+  ssl_ssh_profile     = var.ssl_ssh_profile
   status              = "enable"
   utm_status          = "enable"
-  nat                 = "disable"
+  nat                 = var.nat 
   
   dstintf {
       name = var.interface_name
   }
 
-  service {
-    name = "ALL"
+  dynamic "service" {
+    for_each = var.services
+    content {
+      name = service.value
+    }
   }
 
   dstaddr {

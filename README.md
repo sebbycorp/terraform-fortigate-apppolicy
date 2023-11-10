@@ -22,6 +22,10 @@ module "fortios_firewall_config" {
   instance_ip           = aws_instance.app_team_instance.private_ip
   policy_name           = "app_team_policy"
   interface_name        = "awsgeneve"
+  services              = ["HTTPS", "SSH"] #default is all
+  nat                   = "disable" # default is disable
+  logtraffic            = "all" # all disabled or no
+  ssl_ssh_profile       = "no-inspection" # default certificate-inspection
 }
 
 resource "aws_instance" "app_team_instance" {

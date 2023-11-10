@@ -13,6 +13,33 @@ variable "associated_interface" {
   type        = string
 }
 
+variable "nat" {
+  description = "value for nat"
+  type = string
+  default = "disable"
+}
+
+variable "ssl_ssh_profile" {  
+  description = "value for ssl_ssh_profile"
+  type = string
+  default = "certificate-inspection"
+}
+
+variable "services" {
+  description = "List of service names"
+  type        = list(string)
+  default     = ["ALL"]  # Default value, can be overridden
+}
+
+variable "logtraffic" {
+  description = "value for logtraffic"
+  type = string
+}
+
+variable "action" {
+  description = "value for action"
+  type = string
+}
 variable "instance_ip" {
   description = "Private IP of the instance"
   type        = string
