@@ -1,4 +1,4 @@
-# Terraform Security Policy for Fortigate using GWLB
+# Terraform Secure App Policy for Fortigate using GWLB
 
 To create a reusable Terraform module for your application teams, you'll want to encapsulate the common infrastructure elements in a way that allows for flexibility and ease of use. The module should accept input variables so that each team can customize aspects like names, interfaces, and IP addresses as needed.
 
