@@ -1,3 +1,13 @@
+
+terraform {
+  required_providers {
+    fortios = {
+      source = "fortinetdev/fortios"
+      version = "1.18.0"
+    }
+  }
+}
+
 resource "fortios_firewall_address" "app_address" {
   vdomparam               = var.vdomparam
   name                    = var.address_name
